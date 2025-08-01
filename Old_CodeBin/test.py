@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import sqlite3
-from ui import LaptopReturnTrackerUI
+from return_tracking.ui import LaptopReturnTrackerUI
 
 
 class RestockTrackerUI:

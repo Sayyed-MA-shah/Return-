@@ -16,6 +16,7 @@ class ReturnApp:
             'show_form': self.ui_show_form,
             'show_table': self.ui_show_table,
             'quick_search': self.quick_search,
+            'delete': self.delete
         })
 
         self.setup_database()
@@ -71,6 +72,7 @@ class ReturnApp:
         messagebox.showinfo("Saved", f"Return {return_id} saved successfully.")
         self.reset_form()
         self.refresh_table()
+    
 
     def reset_form(self):
         self.ui.brand_cb.set("")
@@ -94,6 +96,20 @@ class ReturnApp:
 
         for row in self.c.execute(query, params):
             self.ui.tree.insert("", tk.END, values=row)
+
+    def delete(self):
+        selected = self.ui.tree.selection()
+        if not selected:
+            messagebox.showwarning("No Selection", "Please select a return to delete.")
+            return
+
+        return_id = self.ui.tree.item(selected[0], 'values')[0]
+        confirm = messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete return {return_id}?")
+        if confirm:
+            self.c.execute("DELETE FROM returns WHERE return_id = ?", (return_id,))
+            self.conn.commit()
+            self.refresh_table()
+            messagebox.showinfo("Deleted", f"Return {return_id} deleted successfully.")
 
     def search_by_id(self):
         return_id = self.ui.search_id_entry.get()

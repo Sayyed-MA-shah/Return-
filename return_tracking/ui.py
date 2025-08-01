@@ -30,7 +30,9 @@ class LaptopReturnTrackerUI:
         self.quick_search_entry = ttk.Entry(nav_frame, width=15)
         self.quick_search_entry.pack(side="left")
         ttk.Button(nav_frame, text="Go", command=self.callbacks['quick_search']).pack(side="left", padx=(5, 0))
-
+        self.delete = ttk.Entry(nav_frame, width=15)
+        self.delete.pack(side="left")
+        ttk.Button(nav_frame, text="delete", command=self.callbacks['delete']).pack(side="left", padx=(5, 0))
         # ---------- Main Content Container ---------- #
         self.container = ttk.Frame(self.root)
         self.container.pack(fill="both", expand=True, padx=10, pady=10)
