@@ -3,6 +3,7 @@ from tkinter import messagebox
 import sqlite3
 from ui import LaptopReturnTrackerUI
 
+
 class ReturnApp:
     def __init__(self):
         self.root = tk.Tk()
