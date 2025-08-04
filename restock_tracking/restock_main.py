@@ -20,7 +20,7 @@ class RestockApp:
         self.conn = self.init_db()
         self.refresh_table()
         self.ui.tree.bind("<Double-1>", self.load_selected)
-
+    
     def init_db(self):
         conn = sqlite3.connect("returns.db")
         c = conn.cursor()
@@ -75,7 +75,7 @@ class RestockApp:
 
     def reset(self):
         self.ui.clear_fields()
-
+    
     def refresh_table(self):
         c = self.conn.cursor()
         c.execute("SELECT order_no, status FROM restock")

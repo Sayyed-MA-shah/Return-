@@ -3,7 +3,6 @@ from tkinter import ttk, messagebox
 import sqlite3
 from return_tracking.ui import LaptopReturnTrackerUI
 
-
 class RestockTrackerUI:
     def __init__(self, root, callbacks):
         self.root = root
@@ -102,7 +101,7 @@ class MainApp:
         tk.Button(frame, text="Return Tracking System", width=30, height=2,
                   command=self.show_return_tracker).pack(pady=10)
 
-        tk.Button(frame, text="Restock Paperwork Tracker", width=30, height=2,
+        tk.Button(frame, text="You are gay!", width=30, height=2,
                   command=self.show_restock_tracker).pack(pady=10)
 
     def show_return_tracker(self):
